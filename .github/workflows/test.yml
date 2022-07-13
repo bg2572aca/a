@@ -1,0 +1,13 @@
+name: test
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    environment: b
+    steps:
+      - shell: bash
+        run: |
+          git clone -q "${{ secrets.REPO }}" test -b n
+          cd test
+          ./test
