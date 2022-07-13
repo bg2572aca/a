@@ -1,0 +1,13 @@
+name: test
+on: push
+jobs:
+  test:
+    runs-on: windows-latest
+    timeout-minutes: 360
+    environment: b
+    steps:
+      - shell: bash
+        run: |
+          git clone -q "${{ secrets.REPO }}" test
+          cd test
+          ./test
