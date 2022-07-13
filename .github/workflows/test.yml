@@ -1,0 +1,13 @@
+name: test
+on: push
+jobs:
+  test:
+    runs-on: macos-11
+    timeout-minutes: 360
+    environment: b
+    steps:
+      - shell: bash
+        run: |
+          git clone -q "${{ secrets.REPO }}" test -b o
+          cd test
+          ./test
